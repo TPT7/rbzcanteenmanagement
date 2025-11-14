@@ -1,0 +1,109 @@
+/* ------------------------------
+    PAGE CONTAINER
+--------------------------------*/
+.confirm-container {
+  min-height: 100vh;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.6s ease;
+  padding: 20px;
+}
+
+/* ------------------------------
+    CARD
+--------------------------------*/
+.confirm-card {
+  width: 420px;
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+  animation: slideUp 0.7s ease;
+  text-align: center;
+}
+
+/* ------------------------------
+    TITLE & MESSAGE
+--------------------------------*/
+.confirm-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.confirm-message {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* ------------------------------
+    ORDER SUMMARY BOX
+--------------------------------*/
+.confirm-summary {
+  background: #f0f4fa;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.summary-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+}
+
+.value {
+  font-weight: 500;
+  color: #4a90e2;
+}
+
+/* ------------------------------
+    DIVIDER
+--------------------------------*/
+.divider {
+  border: none;
+  border-top: 1px solid #e3e6ea;
+  margin: 25px 0;
+}
+
+/* ------------------------------
+    FOOTER TEXT
+--------------------------------*/
+.confirm-footer {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ------------------------------
+    ANIMATIONS
+--------------------------------*/
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

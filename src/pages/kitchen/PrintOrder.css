@@ -1,0 +1,116 @@
+/* ------------------------------
+    PAGE CONTAINER
+--------------------------------*/
+.print-container {
+  min-height: 100vh;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  animation: fadeIn 0.6s ease;
+}
+
+/* ------------------------------
+    PRINT CARD
+--------------------------------*/
+.print-card {
+  background: #ffffff;
+  padding: 40px 35px;
+  width: 450px;
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+  animation: slideUp 0.7s ease;
+  text-align: center;
+}
+
+/* ------------------------------
+    TITLE
+--------------------------------*/
+.print-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* ------------------------------
+    ORDER DETAILS
+--------------------------------*/
+.print-details {
+  background: #f0f4fa;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.print-details p {
+  margin: 12px 0;
+  font-size: 16px;
+  color: #444;
+}
+
+.label {
+  font-weight: 600;
+  color: #222;
+}
+
+/* ------------------------------
+    PRINT BUTTON
+--------------------------------*/
+.print-btn {
+  width: 100%;
+  padding: 14px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.print-btn:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------
+    ANIMATIONS
+--------------------------------*/
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(35px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ------------------------------
+    PRINT STYLES
+    Removes the card shadow, centers print,
+    makes it kitchen-friendly when printing.
+--------------------------------*/
+@media print {
+  body {
+    background: white;
+  }
+
+  .print-container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .print-card {
+    box-shadow: none;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .print-btn {
+    display: none; /* hide print button on paper */
+  }
+}

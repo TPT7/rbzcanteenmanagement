@@ -1,24 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import PrivateRoute from "./components/PrivateRoute";
+
+// User pages
+import Register from "./pages/user/Register";
+import Login from "./pages/user/Login";
+import MenuSelection from "./pages/user/MenuSelection";
+import TimeSelection from "./pages/user/TimeSelection";
+import Confirmation from "./pages/user/Confirmation";
+
+// Kitchen pages
+import KitchenLogin from "./pages/kitchen/KitchenLogin";
+import KitchenDashboard from "./pages/kitchen/KitchenDashboard";
+import PrintOrder from "./pages/kitchen/PrintOrder";
+import LandingPage from "./pages/landingpage";
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+
+          {/* User routes */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route
+            path="/menu"
+            element={<PrivateRoute role="user"><MenuSelection /></PrivateRoute>}
+          />
+          <Route
+            path="/timeselection"
+            element={<PrivateRoute role="user"><TimeSelection /></PrivateRoute>}
+          />
+          <Route
+            path="/userconfirmation"
+            element={<PrivateRoute role="user"><Confirmation /></PrivateRoute>}
+          />
+
+          {/* Kitchen routes */}
+          <Route path="/kitchenlogin" element={<KitchenLogin />} />
+
+          <Route
+            path="/kitchendashboard"
+            element={<PrivateRoute role="kitchen"><KitchenDashboard /></PrivateRoute>}
+          />
+          <Route
+            path="/printorder"
+            element={<PrivateRoute role="kitchen"><PrintOrder /></PrivateRoute>}
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

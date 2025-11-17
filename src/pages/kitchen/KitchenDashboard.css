@@ -1,106 +1,92 @@
 /* ------------------------------
-    PAGE CONTAINER
---------------------------------*/
-.kitchen-container {
-  min-height: 100vh;
-  background: #f5f7fa;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px 20px;
-  animation: fadeIn 0.6s ease;
-}
-
-/* ------------------------------
-    MAIN CARD
---------------------------------*/
-.kitchen-card {
-  width: 480px;
-  background: #ffffff;
-  padding: 35px 30px;
-  border-radius: 18px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.08);
-  animation: slideUp 0.7s ease;
-}
-
-/* ------------------------------
-    TITLE
---------------------------------*/
-.kitchen-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-/* ------------------------------
-    EMPTY STATE
---------------------------------*/
-.kitchen-empty {
-  color: #666;
-  font-size: 16px;
-  text-align: center;
-}
-
-/* ------------------------------
-    ORDER CARD
+    ORDER CARD — MODERN STYLE
 --------------------------------*/
 .order-card {
-  background: #f0f4fa;
-  border-radius: 14px;
-  padding: 18px 20px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  border: 1px solid #e3e7ee;
+  padding: 24px 28px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .order-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
-.order-card p {
-  margin: 8px 0;
+/* Subtle top highlight bar */
+.order-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #4a90e2;
+  border-radius: 18px 18px 0 0;
+}
+
+/* ------------------------------
+    CARD HEADER
+--------------------------------*/
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.order-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* ------------------------------
+    STATUS PILL — MODERN
+--------------------------------*/
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.status.incoming {
+  background: #ffe7cf;
+  color: #c47828;
+  border: 1px solid #f2c894;
+}
+
+.status.progress {
+  background: #d7e9ff;
+  color: #2c5fa8;
+  border: 1px solid #a8ccf8;
+}
+
+.status.complete {
+  background: #d8f6dd;
+  color: #2d7a3f;
+  border: 1px solid #9ed9aa;
+}
+
+/* ------------------------------
+    ORDER INFO TEXT
+--------------------------------*/
+.order-info p {
+  margin: 10px 0;
   font-size: 15.5px;
-  color: #444;
+  color: #445066;
+  display: flex;
+  justify-content: space-between;
 }
 
 .label {
-  font-weight: 600;
-  color: #333;
-}
-
-/* ------------------------------
-    PRINT BUTTON
---------------------------------*/
-.print-btn {
-  margin-top: 12px;
-  width: 100%;
-  padding: 12px;
-  background: #4a90e2;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.print-btn:hover {
-  background: #357abd;
-  transform: translateY(-2px);
-}
-
-/* ------------------------------
-    ANIMATIONS
---------------------------------*/
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(35px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  font-weight: 700;
+  color: #2c3e50;
 }

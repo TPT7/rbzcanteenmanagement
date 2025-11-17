@@ -5,6 +5,9 @@ import "./MenuSelection.css";
 export default function MenuSelection() {
   const nav = useNavigate();
 
+  const starchOptions = ["Rice", "Fufu", "Yam", "Plantain", "Banku"];
+  const meatOptions = ["Chicken", "Beef", "Fish", "Goat", "Turkey"];
+
   const [order, setOrder] = useState({
     starch: "",
     meat: ""
@@ -15,9 +18,8 @@ export default function MenuSelection() {
       alert("Please select both a starch and a meat.");
       return;
     }
-
     localStorage.setItem("order", JSON.stringify(order));
-    nav("/time-selection");
+    nav("/timeselection");
   };
 
   return (
@@ -25,37 +27,45 @@ export default function MenuSelection() {
       <div className="menu-card">
 
         <h2 className="menu-title">Select Your Meal</h2>
-        <p className="menu-sub">Choose your preferred starch and meat combination.</p>
+        <p className="menu-sub">Tap a starch and meat to build your order.</p>
 
+        {/* STARCH SECTION */}
         <div className="menu-section">
-          <label>Starch</label>
-          <select
-            className="menu-select"
-            onChange={(e) => setOrder({ ...order, starch: e.target.value })}
-          >
-            <option value="">Select…</option>
-            <option>Rice</option>
-            <option>Fufu</option>
-            <option>Yam</option>
-          </select>
+          <h3 className="section-title">Choose a Starch</h3>
+          <div className="card-grid">
+            {starchOptions.map((item) => (
+              <div
+                key={item}
+                className={`food-card ${
+                  order.starch === item ? "selected" : ""
+                }`}
+                onClick={() => setOrder({ ...order, starch: item })}
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* MEAT SECTION */}
         <div className="menu-section">
-          <label>Meat</label>
-          <select
-            className="menu-select"
-            onChange={(e) => setOrder({ ...order, meat: e.target.value })}
-          >
-            <option value="">Select…</option>
-            <option>Chicken</option>
-            <option>Beef</option>
-            <option>Fish</option>
-          </select>
+          <h3 className="section-title">Choose a Meat</h3>
+          <div className="card-grid">
+            {meatOptions.map((item) => (
+              <div
+                key={item}
+                className={`food-card ${
+                  order.meat === item ? "selected" : ""
+                }`}
+                onClick={() => setOrder({ ...order, meat: item })}
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
 
-        <button className="menu-btn" onClick={submit}>
-          Continue
-        </button>
+        <button className="menu-btn" onClick={submit}>Continue</button>
 
       </div>
     </div>

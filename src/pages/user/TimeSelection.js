@@ -15,7 +15,7 @@ export default function TimeSelection() {
     const order = JSON.parse(localStorage.getItem("order"));
     order.time = time;
     localStorage.setItem("order", JSON.stringify(order));
-    nav("/confirmation");
+    nav("/userconfirmation");
   };
 
   return (

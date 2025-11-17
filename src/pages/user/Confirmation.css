@@ -107,3 +107,19 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+.time-btn {
+  width: 100%;
+  padding: 14px;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.time-btn:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+}

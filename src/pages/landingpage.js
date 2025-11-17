@@ -10,7 +10,7 @@ export default function LandingPage() {
         <h1 className="logo">CanteenHub</h1>
         <div className="nav-links">
           <Link to="/login">User Login</Link>
-          <Link to="/kitchen-login">Kitchen Login</Link>
+          <Link to="/kitchenlogin">Kitchen Login</Link>
         </div>
       </nav>
 

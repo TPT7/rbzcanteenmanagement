@@ -7,8 +7,9 @@ export default function KitchenDashboard() {
   const nav = useNavigate();
 
   useEffect(() => {
-    const newOrder = JSON.parse(localStorage.getItem("order"));
-    setOrders(newOrder ? [newOrder] : []);
+    // Fetch all customer orders from localStorage
+    const savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    setOrders(savedOrders);
   }, []);
 
   return (
@@ -21,10 +22,20 @@ export default function KitchenDashboard() {
         ) : (
           orders.map((o, index) => (
             <div className="order-card" key={index}>
-              <p><span className="label">Starch:</span> {o.starch}</p>
-              <p><span className="label">Meat:</span> {o.meat}</p>
-              <p><span className="label">Pickup Time:</span> {o.time}</p>
-              <button className="print-btn" onClick={() => nav("/print-order")}>
+              <p>
+                <span className="label">Starch:</span> {o.starch}
+              </p>
+              <p>
+                <span className="label">Meat:</span> {o.meat}
+              </p>
+              <p>
+                <span className="label">Pickup Time:</span> {o.time}
+              </p>
+              <p>
+                <span className="label">Status:</span> {o.status || "Incoming"}
+              </p>
+
+              <button className="print-btn" onClick={() => nav("/printorder")}>
                 Print
               </button>
             </div>
